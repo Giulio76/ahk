@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="include/w3-colors-2021.css">
+<link rel="stylesheet" href="include/w3.css">
+
+
+
+<style>
+
+
+	html,
+	body {
+	width: 100%;
+	height: 100%;
+	background-color: #123456;
+	margin:0px;padding:0px; 
+
+	}
+
+	.title-btn {
+	padding: 0.35em 1.0em;
+	cursor: pointer;
+	vertical-align: bottom;
+	font-family: Webdings;
+	font-size: 11pt;
+	color: silver; 
+	}
+
+	.title-btn_2 {
+	padding: 0.35em 1.0em;
+	cursor: pointer;
+	vertical-align: bottom;
+	/*font-family: Webdings;*/
+	font-size: 11pt;
+	}
+
+	body .title-btn-restore {
+	display: none
+	}
+
+	body.neutron-maximized .title-btn-restore {
+	display: block
+	}
+
+	body.neutron-maximized .title-btn-maximize {
+	display: none
+	}
+
+	.title-btn:hover {
+	background: rgba(0, 0, 0, .2);
+	}
+
+	.title-btn-close:hover {
+	background: #dc3545;
+	}
+
+
+</style>
+</head>
+
+<body class="w3-2021-ultimate-gray" >
+
+
+<div class="w3-container" style=" margin:0px;padding:0px; ">
+
+
+
+	<!--  barra verticale fissa -->
+	<div class="w3-sidebar w3-bar-block w3-card w3-2021-buttercream"   id="leftMenu" style=" width: 12% ; ">
+		<div class="w3-padding w3-large w3-2021-inkwell" style="  border-top:1px solid grey; border-bottom:1px solid grey;" onclick="ahk.btn_barra_1_top_btn_100(event)">Desktop HUB v.2</div>
+		
+		<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_2_sx_btn_101(event)" 
+		><img src="images/icons/svgs/solid/folder-open.svg" style= "width:1em; "> folders</a>
+		
+		<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_2_sx_btn_102(event)" 
+		><img src="images/icons/svgs/solid/folder-open.svg" style= "width:1em; "> CMD</a>		
+		
+		<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_2_sx_btn_103(event)" 
+		><img src="images/icons/svgs/solid/folder-open.svg" style= "width:1em; "> contenuti pronti</a>		
+		
+		
+		<hr>
+		
+		<a href="#" class="w3-bar-item w3-button"><img src="images/icons/svgs/solid/cube.svg" style= "width:1em; "> Link 2</a>
+		<a href="#" class="w3-bar-item w3-button"><img src="images/icons/svgs/solid/diamond.svg" style= "width:1em; "> Link 3</a>
+		<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_2_sx_btn_101(event)" 
+		><img src="images/icons/svgs/solid/display.svg" style= "width:1em; "> folders</a>		
+	</div>
+
+
+
+	<!--  barra verticale destra nascosta -->
+	<div class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-2021-buttercream" style="display:none;right:0; z-index:10;" id="rightMenu">
+		<button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large w3-2021-ultimate-gray">Close &times;</button>
+		
+		<a href="#" class="w3-bar-item w3-button">Link 2</a>
+
+		<div id="" class="w3-orange w3-padding-small" style="">folders</div> 
+		<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_201(event); closeRightMenu();" >esecuzione automatica</a>
+		<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_202(event); closeRightMenu();" >%temp%</a>
+		<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_211(event); closeRightMenu();" >script ahk</a>
+		
+		<div id="" class="w3-orange w3-padding-small" style="">&nbsp;</div> 
+		
+		<div class="w3-dropdown-hover">
+			<button class="w3-button">COMPUTER <i class="fa fa-caret-down"></i></button>
+			<div class="w3-dropdown-content w3-bar-block">
+				<a href="#" class="w3-bar-item w3-button w3-yellow" onclick="ahk.btn_barra_4_destra_btn_101(event); closeRightMenu();" ><b>hibernate</b><br>sospendi il computer</a>
+				<br>
+				<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_102(event); closeRightMenu();" >reboot<br><span class="w3-small">Riavvia il PC</span></a>
+				<br>
+				<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_103(event); closeRightMenu();" >shut down<br><span class="w3-small">Spegne immediatamente il PC</span></a>
+				<br>
+				<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_104(event); closeRightMenu();" >power down<br><span class="w3-small">Arresto forzato: costringe tutte le applicazioni avviate a chiudersi (l’utente non riceve alcun preavviso)</span></a>
+				
+				
+			</div>
+		</div>
+
+
+		<div class="w3-bottom">
+				<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_901(event); closeRightMenu();"><img src="images/icons/svgs/solid/xmark.svg" style= "width:1em; "> close app</a>
+				<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_902(event); closeRightMenu();"><img src="images/icons/svgs/solid/arrow-rotate-right.svg" style= "width:1em; "> reload script</a>
+				<a href="#" class="w3-bar-item w3-button" onclick="ahk.btn_barra_4_destra_btn_903(event); closeRightMenu();"><img src="images/icons/svgs/solid/folder-open.svg" style= "width:1em; "> this script folder</a>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+	<!--  barra top -->
+	<div class="w3-2021-inkwell" style="width: 88%; margin-left: 12%; border-top:1px solid grey; border-bottom:1px solid grey;">
+		
+		<!--  elem che stanno a sinistra -->
+		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large " onclick="ahk.btn_barra_1_top_btn_101(event)" >hot key</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large " onclick="ahk.btn_barra_1_top_btn_102(event)" >hot string</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large " onclick="ahk.btn_barra_1_top_btn_103(event)" >ASCII</a>
+
+				
+		<!--  apre un modale -->		
+		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large " onclick="ahk.btn_barra_1_top_btn_201(event)" style=" margin-left: 5em; ">cheshire cat</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large " onclick="ahk.btn_barra_1_top_btn_202(event)" style=" margin-left: 0em; ">ollama</a>
+
+
+		<!--  elem che sta adestra -->
+		
+		<!--  elemento più a destra -->
+		<button class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large w3-right w3-2021-inkwell" onclick="openRightMenu()">&#9776;</button>
+
+
+
+		<!--  speciale orologio -->
+		<span id="orologio_display_ora" 		class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large w3-right">ora</span>		
+		<span id="orologio_display_data" 		class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large w3-right">lun</span>
+		<span id="orologio_display_giorno_nome" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large w3-right">data</span>
+		
+		<script>
+		var myVar_1 = setInterval(myTimer_1, 1000);
+
+		function myTimer_1() {
+		  var d = new Date();
+		  var t = d.toLocaleTimeString();
+		  document.getElementById("orologio_display_ora").innerHTML = t;
+		}
+
+		var myVar_2 = setInterval(myTimer_2, 1000);
+
+		function myTimer_2() {
+			var oggi = new Date();
+			var anno = oggi.getFullYear();
+			var mese = oggi.getMonth() +1;
+			var giorno = oggi.getDate();		  
+			//var giornosettimana_numero = oggi.getDay()				
+			var oggi = new Date();
+			var giornosettimana_nome;
+			switch (oggi.getDay()) {
+			case 0:
+			giornosettimana_nome = "domenica";
+			break;
+			case 1:
+			giornosettimana_nome = "lunedì";
+			break;
+			case 2:
+			giornosettimana_nome = "martedì";
+			break;
+			case 3:
+			giornosettimana_nome = "mercoledì";
+			break;
+			case 4:
+			giornosettimana_nome = "giovedì";
+			break;
+			case 5:
+			giornosettimana_nome = "venerdì";
+			break;
+			case 6:
+			giornosettimana_nome = "sabato";
+			break;
+			}
+			//console.log("Oggi è " + giorno);
+			  
+			document.getElementById("orologio_display_data").innerHTML = giorno + " / " + mese + " / " + anno ;
+			document.getElementById('orologio_display_giorno_nome').innerHTML = giornosettimana_nome;
+		}
+		</script>
+		<!--  speciale orologio - fine -->
+	 
+		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large w3-right">calendario</a>
+			
+
+
+		<div class="w3-dropdown-hover w3-right">
+		  <button class="w3-button w3-2021-inkwell w3-hover-none w3-text-grey w3-hover-text-white w3-large w3-large">dropdown</button>
+		  <div class="w3-dropdown-content w3-bar-block w3-card-4">
+			<a href="#" class="w3-bar-item w3-button">Link 1</a>
+			<a href="#" class="w3-bar-item w3-button">Link 2</a>
+			<a href="#" class="w3-bar-item w3-button">Link 3</a>
+		  </div>
+		</div>
+	  
+	  
+	  
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--  contenuto -->
+	<!--  questo continitore ha posiziont absolute e quelli dentro relative -->
+	<div id="ctn_centrale" class="w3-container " style="position: absolute; left: 12%; top: 3em; 	width: 88%; height: 90%; overflow:auto; margin:0px;padding:0px; ">
+
+	<!--  contenitore principale -->
+	<div id="ctn_centrale_contenuto_100" class="" style="position: relative; left: 0px; top: 0px; margin:0px;padding:2px; display:block; padding-left:1em">
+	<h3>home</h3><br>
+	</div> 
+	
+	
+	<!--  contenitore hotkey -->
+	<div id="ctn_centrale_contenuto_101" class="" style="position: relative; left: 0px; top: 0px; margin:0px;padding:2px; display:none; padding-left:1em">
+	<h3>hot key</h3><br>
+	<div id="ctn_cen_101_filereadinfo" class="" style=""></div> 
+	</div> 
+	 
+	<!--  contenitore hotstring -->
+	<div id="ctn_centrale_contenuto_102" class="" style="position: relative; left: 0px; top: 0px; margin:0px;padding:2px; display:none; padding-left:1em; ">
+		<h3>hot string</h3><br>
+		
+		<table cellpadding="2" cellspacing="0" border="0" style="width: 100%; ">
+		<tr> 
+		<td valign="top"> 
+			<div id="" class="" style="  padding: 5px;  background-color: #cae8ca;  border: 2px solid #4CAF50;	">
+				<a href="#css" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">CSS</a><br>
+				<a href="#HTML 4" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">HTML 4</a><br>
+				<a href="#HTML 5" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">HTML 5</a><br>
+				<a href="#BOOTSTRAP 3" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">BOOTSTRAP 3</a><br>
+				<a href="#ASP" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">ASP</a><br>
+				<a href="#JS JavaScript" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">JS JavaScript</a><br>				
+				<a href="#PHP" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">PHP</a><br>
+				<a href="#W3_CSS" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">W3_CSS</a><br>				
+				<a href="#SQL QUERY" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">SQL QUERY</a><br>
+				<a href="#CHAR" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">CHAR</a><br>
+				
+				<a href="#adattatore_inizio" class="w3-btn w3-black w3-round-large" style=" margin-bottom: 0.5em; ">adattatore_inizio</a><br>
+				
+				<!--  
+				<a href="#css">css</a><br>
+				<a href="#css">css</a><br>
+				<a href="#css">css</a><br>
+				<a href="#css">css</a><br>
+				 -->
+				
+			</div>
+		</td>
+		<td style=""> 
+			<div id="ctn_cen_102_filereadinfo" class="" style="height: 50em; overflow:scroll"></div> 
+		</td>
+		</tr>		
+		</table>	
+	</div> 	
+	 
+	 
+	 
+	<!--  contenitori collegati al menu verticale sinistro --> 
+	<div id="ctn_centrale_contenuto_201" class="" style="position: relative; left: 0px; top: 0px; margin:0px;padding:2px; display:none; padding-left:1em; ">
+
+		<h2><img src="images/icons/svgs/solid/folder-open-v1-363945.svg" style= "width:2em; "> Folders</h2>
+		
+		
+		<table cellpadding="2" cellspacing="0" border="0" style="width: 100%;">
+		<tr>
+		<td valign="top">
+		
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge" onclick="ahk.btn_centrale_contenuto_201_btn_201(event);">Download</button>
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge" onclick="ahk.btn_centrale_contenuto_201_btn_202(event);">Documenti</button>
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge" onclick="ahk.btn_centrale_contenuto_201_btn_203(event);">Desktop</button>
+		
+		<br><br><br>
+		</td>
+		<td valign="top">
+		
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge" onclick="ahk.btn_centrale_contenuto_201_btn_301(event);">web server root</button>
+		
+		
+		
+
+		</td>		
+		</tr>	
+		<tr>
+		<td valign="top">
+		<hr>
+		
+		<button class="w3-btn w3-black w3-round-large" onclick="ahk.btn_centrale_contenuto_201_btn_101(event);">
+				<img src="images/icone_folders/240512_144806.jpg" class="w3-round-large" style= "width:150px;" ><br>
+				<span class="w3-large">OPPO A58</span><br>
+				<span class="">SMARTPHONE (2024)</span></button>
+		 
+		<button class="w3-btn w3-black w3-round-large" onclick="ahk.btn_centrale_contenuto_201_btn_102(event);">
+				<img src="images/icone_folders/240512_151046.jpg" class="w3-round-large" style= "width:150px;" ><br>
+				<span class="w3-large">OPPO A16s</span><br>
+				<span class="">SMARTPHONE (2022)</span></button>
+		 
+		<button class="w3-btn w3-black w3-round-large" onclick="ahk.btn_centrale_contenuto_201_btn_103(event);">
+				<img src="images/icone_folders/240512_151530.jpg" class="w3-round-large" style= "width:100px;" ><br>
+				<span class="w3-large">ic recorder</span><br>
+				<span class="">VOICE REC (2024)</span></button>
+				
+		
+		</td>
+		<td>
+		</td>	
+		</tr>
+		
+		</table>
+	 
+	</div>	 
+	 
+	 
+	 
+	 
+	<!--  contenitori collegati al menu verticale sinistro --> 
+	<div id="ctn_centrale_contenuto_202" class="" style="position: relative; left: 0px; top: 0px; margin:0px;padding:2px; display:none; padding-left:1em; ">
+
+		<h2><img src="images/icons/svgs/solid/folder-open-v1-363945.svg" style= "width:2em; "> CMD</h2>
+		
+			<table cellpadding="2" cellspacing="0" border="0" style="width: 100%;">
+		<tr>
+		<td valign="top">
+		
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge w3-margin" onclick="ahk.btn_centrale_contenuto_202_btn_101(event);">cmd.exe</button>
+		<br>
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge w3-margin" onclick="ahk.btn_centrale_contenuto_202_btn_102(event);">help</button>
+		<br>
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge w3-margin" onclick="ahk.btn_centrale_contenuto_202_btn_102(event);">ipconfig</button>
+		<br>
+		
+		
+		<br><br><br>
+		</td>
+		<td valign="top">
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge w3-margin" onclick="ahk.btn_centrale_contenuto_202_btn_201(event);">PowerShell.exe</button>
+		<br>
+		<button class="w3-btn w3-black w3-round-large w3-xxlarge w3-margin" onclick="ahk.btn_centrale_contenuto_202_btn_202(event);">help</button>
+		<br>
+		
+		</td>	
+		</tr>
+		
+		</table>
+		
+	</div> 	
+
+
+
+
+
+
+
+
+
+	 
+	<!--  contenitori collegati al menu verticale sinistro --> 
+	<div id="ctn_centrale_contenuto_203" class="" style="position: relative; left: 0px; top: 0px; margin:0px;padding:2px; display:none; padding-left:1em; ">
+
+		<h2><img src="images/icons/svgs/solid/folder-open-v1-363945.svg" style= "width:2em; "> contenuti preparati e files pronti</h2>
+		
+			<table cellpadding="2" cellspacing="0" border="0" style="width: 100%;">
+		<tr>
+
+
+
+<!--  ---------------------------------------------------- -->		
+		<td valign="top" style="width: 14em; ">					
+		HTML example:
+			<div class="form-group" style="margin-bottom:0.2em; ">
+			  <textarea class="form-control w3-border-left w3-leftbar w3-border-green" 
+							autofocus rows="20" id="btn_centrale_contenuto_203_elem_memo_01" 
+							style="font-size: 0.6em; padding:4px; width: 20em; border:0px solid black; ">
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML Tutorial</title>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>			  
+			  </textarea>
+			</div>
+		
+		
+		<button class="w3-btn w3-green w3-round-xlarge  " onclick="ahk.btn_centrale_contenuto_203_btn_101(event);">copia</button>
+		
+		<br><br><br>
+		</td>
+<!--  ---------------------------------------------------- -->				
+<!--  ---------------------------------------------------- -->		
+		<td valign="top" style="width: 14em; ">					
+		W3.CSS html example:
+			<div class="form-group" style="margin-bottom:0.2em; ">
+			  <textarea class="form-control w3-border-left w3-leftbar w3-border-green" 
+							autofocus rows="20" id="btn_centrale_contenuto_203_elem_memo_02" 
+							style="font-size: 0.6em; padding:4px; width: 20em; border:0px solid black; ">
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container w3-teal">
+  <h1>My Car</h1>
+</div>
+
+<img src="img_car.jpg" alt="Car" style="width:100%">
+
+<div class="w3-container">
+  <p>A car is a wheeled, self-powered motor vehicle used for transportation.</p>
+</div>
+
+<div class="w3-container w3-teal">
+  <p>My footer information</p>
+</div>
+
+</body>
+</html> 
+		  
+			  </textarea>
+			</div>
+		
+		
+		<button class="w3-btn w3-green w3-round-xlarge  " onclick="ahk.btn_centrale_contenuto_203_btn_102(event);">copia</button>
+		
+		<br><br><br>
+		</td>
+<!--  ---------------------------------------------------- -->		
+		
+		
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		<td valign="top">
+		
+		</td>	
+		</tr>
+		
+		</table>
+		
+	</div> 	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+<script>
+function openRightMenu() {
+  document.getElementById("rightMenu").style.display = "block";
+}
+
+function closeRightMenu() {
+  document.getElementById("rightMenu").style.display = "none";
+}
+</script>
+  
+
+	 
+
+</div>
+
+
+
+
+
+
+
+
+	<!--  barra bottom -->
+	<div class="w3-bar w3-2021-inkwell"  style="position:absolute; bottom:0px; right:0px; width: 100%; border-top:1px solid grey; z-index:3;">	  
+
+		<div class="w3-row">
+		  <div class="w3-col s5 ">
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_101(event)" >.txt</a>
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_102(event)" >.html</a>
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_103(event)" >.css</a>
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_104(event)" >.ahk</a>
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_105(event)" >.py</a>
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_106(event)" >.lua</a>
+			  
+			  <input type="text" class="w3-bar-item w3-large w3-2021-ultimate-gray w3-text-black" value="bat"
+					 id="ctn_modale_2_estensione" placeholder="bat" style=" width: 3em; margin:0px;padding:2px;margin-top: 0.4em;  margin-left: 2em; ">
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_107(event)" >save</a>
+			  
+		  </div>
+		  <div class="w3-col s2 w3-center">			  
+			  
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_201(event)" >.jpg</a>
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large" onclick="ahk.btn_barra_2_bottom_btn_202(event)" >.png</a>  
+		  </div>
+
+
+		  <div class="w3-col s2 w3-center">
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large w3-center" onclick="ahk.btn_barra_2_bottom_btn_301(event)" >folder</a>	  
+			  
+		  </div>  
+
+		  <div class="w3-col s2 w3-center">
+			  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-large w3-center" onclick="ahk.btn_barra_2_bottom_btn_401(event)" >tacchino</a>	  
+			  
+		  </div>  
+		  
+		  
+		  <div class="w3-col s1 w3-right">
+		  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white w3-xlarge w3-right" title="tacchino" onclick="ahk.btn_barra_2_bottom_btn_901(event)" >&orarr;</a>
+		  </div>  
+		</div>
+	  
+	</div>
+
+
+</body>
+</html>
